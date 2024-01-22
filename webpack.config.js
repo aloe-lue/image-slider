@@ -16,7 +16,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'top-repository-template',
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -32,6 +32,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
