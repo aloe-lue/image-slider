@@ -3,16 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Slider</title>
+    <title>image slider</title>
   </head>
   <body>
-    <div id="main-container">
+    <div id="main_container">
       <main>
-        <div class="arrow-buttons"></div>
+        <div id="image_carousel">
+          <div class="hero_image">
+            <div class="visible_image"></div>
+            <figure>
+              <img
+                src="./images/images-outline.svg"
+                alt="an image of images icon"
+              />
+              <figcaption>Images</figcaption>
+            </figure>
 
-        <div class="images-container"></div>
+            <figure>
+              <img
+                src="./images/film-outline.svg"
+                alt="an image of film icon"
+              />
+              <figcaption>Film</figcaption>
+            </figure>
 
-        <div class="circle-navigations"></div>
+            <figure>
+              <img
+                src="./images/game-controller-outline.svg"
+                alt="an image of game controller icon"
+              />
+              <figcaption>Game Controller</figcaption>
+            </figure>
+          </div>
+
+          <div id="image_slider_navigation">
+            <nav class="previous_image">
+              <button class="arrow_back">
+                <figure>
+                  <img
+                    src="./arrow-forward-and-back/arrow-back-outline.svg"
+                    alt="view previous image"
+                  />
+                  <figcaption>Previous</figcaption>
+                </figure>
+              </button>
+            </nav>
+
+            <nav class="circles">
+              <button data-slide="1"></button>
+
+              <button data-slide="2"></button>
+
+              <button data-slide="3"></button>
+            </nav>
+
+            <nav class="next_image">
+              <button class="arrow_forward">
+                <figure>
+                  <img
+                    src="./arrow-forward-and-back/arrow-forward-outline.svg"
+                    alt="view next image"
+                  />
+                  <figcaption>Next</figcaption>
+                </figure>
+              </button>
+            </nav>
+          </div>
+        </div>
       </main>
     </div>
   </body>
