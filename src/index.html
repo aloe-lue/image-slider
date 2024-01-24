@@ -11,30 +11,40 @@
         <div id="image_carousel">
           <div class="hero_image">
             <div class="visible_image"></div>
-            <figure>
-              <img
-                src="./images/images-outline.svg"
-                alt="an image of images icon"
-              />
-              <figcaption>Images</figcaption>
-            </figure>
+            <div class="invisible_images">
+              <figure>
+                <img
+                  src="./images-in-images-slider/images-outline.svg"
+                  alt="an image of images icon"
+                />
+                <figcaption>Images</figcaption>
+              </figure>
 
-            <figure>
-              <img
-                src="./images/film-outline.svg"
-                alt="an image of film icon"
-              />
-              <figcaption>Film</figcaption>
-            </figure>
+              <figure>
+                <img
+                  src="./images-in-images-slider/film-outline.svg"
+                  alt="an image of film icon"
+                />
+                <figcaption>Film</figcaption>
+              </figure>
 
-            <figure>
-              <img
-                src="./images/game-controller-outline.svg"
-                alt="an image of game controller icon"
-              />
-              <figcaption>Game Controller</figcaption>
-            </figure>
+              <figure>
+                <img
+                  src="./images-in-images-slider/game-controller-outline.svg"
+                  alt="an image of game controller icon"
+                />
+                <figcaption>Game Controller</figcaption>
+              </figure>
+            </div>
           </div>
+
+          <nav class="circles">
+            <button data-slide="1"></button>
+
+            <button data-slide="2"></button>
+
+            <button data-slide="3"></button>
+          </nav>
 
           <div id="image_slider_navigation">
             <nav class="previous_image">
@@ -47,14 +57,6 @@
                   <figcaption>Previous</figcaption>
                 </figure>
               </button>
-            </nav>
-
-            <nav class="circles">
-              <button data-slide="1"></button>
-
-              <button data-slide="2"></button>
-
-              <button data-slide="3"></button>
             </nav>
 
             <nav class="next_image">
