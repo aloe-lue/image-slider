@@ -145,13 +145,16 @@ table {
 
   --arrow-back-with: 24px;
   --arrow-back-height: 100%;
+}
 
-  outline: 1px solid blue;
+body {
+  background-color: white;
 }
 
 main {
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 }
 
 .arrow_forward > figure > img {
@@ -167,7 +170,7 @@ main {
 div#image_slider_navigation {
   display: flex;
   background-color: #ffffff;
-  padding: 0.1rem 1rem;
+  padding: 0.1rem 0rem;
 }
 
 button.arrow_back > figure,
@@ -216,4 +219,24 @@ button.arrow_back > figure > figcaption {
 
 .circles > button.active_button {
   background-color: black;
+}
+
+div#image_carousel {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: min(45ch, 100%);
+  height: 500px;
+}
+
+.hero_image {
+  background-color: lightgray;
+  display: flex;
+  height: 45ch;
+  justify-content: start;
+  width: 45ch;
+}
+
+.invisible_images {
+  display: none;
 }
