@@ -166,12 +166,7 @@ main {
 
 div#image_slider_navigation {
   display: flex;
-  background-color: #ffffff30;
-  border-color: #f5f5f5 #77889980 #80808080 #fff;
-  border-radius: 0.75rem;
-  border-style: solid;
-  border-width: 1px 1px 2px;
-  box-shadow: 0 25px 50px 15px #00000015;
+  background-color: #ffffff;
   padding: 1rem;
 }
 
@@ -184,20 +179,22 @@ button.arrow_forward > figure {
 
 button.arrow_back,
 button.arrow_forward {
-  background-color: #ffffff30;
-  border-color: #f5f5f5 #77889980 #80808080 #fff;
+  appearance: none;
+  border-width: 0px;
+  border-color: white;
   border-radius: 0.75rem;
-  border-style: solid;
-  border-width: 1px 1px 2px;
-  box-shadow: 0 0 5px #00000015;
-  margin: 0 0.3rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0.2rem 1rem;
+  margin: 0.1rem 0.2rem;
+  background-color: lightgray;
 }
 
 button.arrow_back:active,
 button.arrow_forward:active {
-  border-top: 2px solid #80808080;
-  border-right: 1px solid #fff;
-  border-bottom: 1px solid #f5f5f5;
-  border-left: 1px solid #77889980;
+  opacity: 60%;
+}
+
+button.arrow_forward > figure > figcaption,
+button.arrow_back > figure > figcaption {
+  scale: 0;
+  position: absolute;
 }
