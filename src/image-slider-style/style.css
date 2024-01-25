@@ -167,7 +167,7 @@ main {
 div#image_slider_navigation {
   display: flex;
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 0.1rem 1rem;
 }
 
 button.arrow_back > figure,
@@ -197,4 +197,23 @@ button.arrow_forward > figure > figcaption,
 button.arrow_back > figure > figcaption {
   scale: 0;
   position: absolute;
+}
+
+.circles {
+  display: flex;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.circles > button {
+  appearance: none;
+  border: 0;
+  background-color: lightgray;
+  padding: 0.5rem;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+
+.circles > button.active_button {
+  background-color: black;
 }
