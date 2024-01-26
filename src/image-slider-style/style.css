@@ -251,3 +251,7 @@ div#image_carousel {
 .hero_image > figure > img {
   height: 100%;
 }
+
+.circles .current_image {
+  background-color: black;
+}
