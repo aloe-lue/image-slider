@@ -227,8 +227,6 @@ div#image_carousel {
   display: flex;
   flex-direction: column;
   height: 500px;
-  overflow: hidden;
-  padding: 1rem;
   width: min(45ch, 100%);
 }
 
@@ -237,6 +235,8 @@ div#image_carousel {
   display: flex;
   height: 45ch;
   justify-content: start;
+  overflow: hidden;
+  padding: 1rem;
   width: 45ch;
 }
 
