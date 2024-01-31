@@ -1,10 +1,11 @@
+// * functions down here depends on this two variables  and i think it's not really a good idea due to global pollution
+
 const elements = [];
 let elementsIndex = 0;
 
-function next() {
-  if (elementsIndex >= elements.length - 1) {
-    elementsIndex = 0;
-    return elementsIndex;
+function next(index, array) {
+  if (index >= array.length - 1) {
+    return 0;
   }
   elementsIndex -= 1;
   return elementsIndex;
@@ -19,31 +20,25 @@ function previous() {
   return elementsIndex;
 }
 
-// how to use this function?
-const nextBtn = document.querySelector('your next button');
-const previousBtn = document.querySelector('your previous button');
+// * code above is tightly coupled, think of how you can come up with a loose coupled technique, aysus
 
-nextBtn.addEventListener('click', () => {
-  // you want to show all elements
-  next();
-  if (elementsIndex === 0) {
-    elements.forEach((element) => element.classList.toggle('hide'));
-  }
-  // you want to show the next element so you hide the previous element
-  elements.at(elementsIndex - 1).classList.toggle('hide');
-});
+/**
+ * * function 'hideAllArrayItem' below is used to add a classList to an elements
+ * * function 'showCurrentArrayItem' below is used to toggle classList of an element
+ */
 
-previousBtn.addEventListener('click', () => {
-  previous();
-  //
-  if (elementsIndex === elements.length - 1) {
-    elements.forEach((element) => element.classList.toggle('hide'));
-  }
-  // you want to show the previous element so you hide the next element
-  elements.at(elementsIndex).classList.toggle('hide');
-});
+function hideAllArrayItem(array, classListVal) {
+  return array.forEach((item) => item.classList.add(classListVal));
+}
 
-export { next, previous };
+function showCurrentArrayItem(array, currentIndex, classListVal) {
+  return array.at(currentIndex).classList.toggle(classListVal);
+}
 
-// todo: since this is tightly coupled i don't want global to be polluted so make it clean
-// todo: this functions alright but when you do it doesn't actually toggle the next img classList when using the previous function
+export { next, previous, hideAllArrayItem, showCurrentArrayItem };
+
+// todo: make this code clean
+
+// ? how to use this?
+// * for next button use the next function together with hideAllArrayItem and showCurrentArrayitem
+// * for previous button use the previous function together with hideAllArrayItem and showCurrentArrayitem
