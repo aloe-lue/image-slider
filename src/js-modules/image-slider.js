@@ -7,7 +7,7 @@ function next(index, array) {
   if (index >= array.length - 1) {
     return 0;
   }
-  elementsIndex -= 1;
+  elementsIndex += 1;
   return elementsIndex;
 }
 
@@ -16,7 +16,7 @@ function previous() {
     elementsIndex = elements.length - 1;
     return elementsIndex;
   }
-  elementsIndex += 1;
+  elementsIndex -= 1;
   return elementsIndex;
 }
 
