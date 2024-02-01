@@ -226,22 +226,21 @@ div#image_carousel {
   border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 650px;
   width: min(45ch, 100%);
 }
 
 .hero_image {
   background-color: lightgray;
   display: flex;
-  height: 45ch;
+  height: 100%;
   justify-content: start;
   overflow: hidden;
-  padding: 1rem;
   width: 45ch;
 }
 
-.invisible_images {
-  display: none;
+.hero_image > figure {
+  background-color: #d3d3d3;
 }
 
 .hero_image > figure > figcaption {
@@ -249,7 +248,11 @@ div#image_carousel {
   scale: 0;
 }
 .hero_image > figure > img {
-  height: 100%;
+  width: 45ch;
+}
+
+.hero_image > figure.hide > img {
+  width: 0;
 }
 
 .circles .current_image {
