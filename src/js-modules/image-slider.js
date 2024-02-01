@@ -1,3 +1,11 @@
+const elementSetter = ({ imagesToAdd, arrayOfImage }) => {
+  const addMultipleImages = () =>
+    imagesToAdd.forEach((image) => {
+      arrayOfImage.push(image);
+    });
+  return { addMultipleImages };
+};
+
 const elementGetter = function getImageUsingNextAndPreviousFunction() {
   const images = [];
   let imagesIndex = 0;
@@ -23,4 +31,4 @@ const elementGetter = function getImageUsingNextAndPreviousFunction() {
   return { getNextImage, getPreviousImage, images };
 };
 
-export default elementGetter;
+export { elementGetter, elementSetter };
