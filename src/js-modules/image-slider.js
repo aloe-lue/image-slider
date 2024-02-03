@@ -34,4 +34,16 @@ const arrayIndexPosition = () => {
   return { nextIndex, previousIndex };
 };
 
-export { arrayIndexPosition, elementSetter };
+const imagePosition =
+  function calculateImageWidthAndIndexToGetThePositionOfAllTheImages({
+    imageWidth,
+    index,
+  }) {
+    const positionGetter = imageWidth * index;
+
+    return {
+      positionGetter,
+    };
+  };
+
+export { arrayIndexPosition, elementSetter, imagePosition };
