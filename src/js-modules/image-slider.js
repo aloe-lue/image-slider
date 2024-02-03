@@ -1,4 +1,7 @@
-const elementSetter = ({ imagesToAdd, arrayOfImage }) => {
+const elementSetter = function addMultipleElements({
+  imagesToAdd,
+  arrayOfImage,
+}) {
   const addMultipleImages = () =>
     imagesToAdd.forEach((image) => {
       arrayOfImage.push(image);
@@ -6,29 +9,29 @@ const elementSetter = ({ imagesToAdd, arrayOfImage }) => {
   return { addMultipleImages };
 };
 
-const elementGetter = function getImageUsingNextAndPreviousFunction() {
-  const images = [];
-  let imagesIndex = 0;
+const arrayIndexPosition = () => {
+  const arrayOfImages = [];
+  let index = 0;
 
-  const getNextImage = () => {
-    if (imagesIndex >= images.length - 1) {
-      imagesIndex = 0;
-      return imagesIndex;
+  const nextIndex = () => {
+    if (index >= arrayOfImages.length - 1) {
+      index = 0;
+      return index;
     }
-    imagesIndex += 1;
-    return imagesIndex;
+    index += 1;
+    return index;
   };
 
-  const getPreviousImage = () => {
-    if (imagesIndex === 0) {
-      imagesIndex = images.length - 1;
-      return imagesIndex;
+  const previousIndex = () => {
+    if (index === 0) {
+      index = arrayOfImages.length - 1;
+      return index;
     }
-    imagesIndex -= 1;
-    return imagesIndex;
+    index -= 1;
+    return index;
   };
 
-  return { getNextImage, getPreviousImage, images };
+  return { nextIndex, previousIndex };
 };
 
-export { elementGetter, elementSetter };
+export { arrayIndexPosition, elementSetter };
