@@ -1,13 +1,36 @@
 const elementSetter = function addMultipleElements({
   imagesToAdd,
   arrayOfImage,
+  numberOfImages,
+  parent,
+  dataAttribute,
+  initialClassList,
 }) {
   // you want to add all images to an array
   const addMultipleImages = () =>
     imagesToAdd.forEach((image) => {
       arrayOfImage.push(image);
     });
-  return { addMultipleImages };
+
+  const addMultipleButtons = () =>
+    numberOfImages.forEach((image, index) => {
+      const button = document.createElement('button');
+
+      if (index === 0) {
+        button.classList.toggle(initialClassList);
+      }
+
+      // you want to use the it's index as a way to jump to that images
+      button.innerText = `${index}`;
+      button.setAttribute(`${dataAttribute}`, `${index}`);
+
+      parent.appendChild(button);
+    });
+
+  return {
+    addMultipleImages,
+    addMultipleButtons,
+  };
 };
 
 const arrayIndexPosition = () => {
