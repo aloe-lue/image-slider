@@ -10,6 +10,18 @@
       <main>
         <div id="image_carousel">
           <div class="hero_image">
+            <nav class="previous_image">
+              <button class="arrow_back">
+                <figure>
+                  <img
+                    src="./arrow-forward-and-back/arrow-back-outline.svg"
+                    alt="view previous image"
+                  />
+                  <figcaption>Previous</figcaption>
+                </figure>
+              </button>
+            </nav>
+
             <figure>
               <img
                 src="./images-in-images-slider/grasshopper.webp"
@@ -49,28 +61,6 @@
               />
               <figcaption>turkey</figcaption>
             </figure>
-          </div>
-
-          <nav class="circles">
-            <button data-slide="1" class="current_image"></button>
-
-            <button data-slide="2"></button>
-
-            <button data-slide="3"></button>
-          </nav>
-
-          <div id="image_slider_navigation">
-            <nav class="previous_image">
-              <button class="arrow_back">
-                <figure>
-                  <img
-                    src="./arrow-forward-and-back/arrow-back-outline.svg"
-                    alt="view previous image"
-                  />
-                  <figcaption>Previous</figcaption>
-                </figure>
-              </button>
-            </nav>
 
             <nav class="next_image">
               <button class="arrow_forward">
@@ -83,6 +73,8 @@
                 </figure>
               </button>
             </nav>
+
+            <nav class="circles"></nav>
           </div>
         </div>
       </main>
