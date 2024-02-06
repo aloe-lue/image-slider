@@ -183,12 +183,19 @@ button.arrow_forward > figure {
 button.arrow_back,
 button.arrow_forward {
   appearance: none;
-  background-color: lightgray;
-  border-color: white;
+  background-color: #ffffff00;
+  border-color: #ffffff00;
   border-radius: 0.75rem;
   border-width: 0px;
   margin: 0.1rem 0.2rem;
   padding: 0.2rem 1rem;
+  cursor: pointer;
+}
+
+button.arrow_back:hover,
+button.arrow_forward:hover {
+  border: 1px solid #ffffff80;
+  background-color: #ffffff80;
 }
 
 button.arrow_back:active,
@@ -205,14 +212,19 @@ button.arrow_back > figure > figcaption {
 .circles {
   display: flex;
   justify-content: center;
-  padding: 0.25rem;
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  z-index: 2;
 }
 
 .circles > button {
   appearance: none;
   background-color: lightgray;
   border-radius: 50%;
-  border: 0;
+  border: 2px solid #ffffff80;
+  font-size: 1px;
+  color: transparent;
   margin: 0 2px;
   padding: 0.5rem;
 }
@@ -258,4 +270,21 @@ div#image_carousel {
 
 .circles .current_image {
   background-color: black;
+}
+
+nav.previous_image {
+  left: 0;
+}
+
+nav.next_image {
+  right: 0;
+}
+
+nav.previous_image,
+nav.next_image {
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
 }
