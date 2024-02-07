@@ -3,6 +3,8 @@ import {
   arrayIndexPosition,
   elementSetter,
   imagePosition,
+  fillTheRightCircleButton,
+  moveAllTheImages,
 } from './js-modules/image-slider';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -33,73 +35,59 @@ window.addEventListener('DOMContentLoaded', () => {
   arrowForward.addEventListener('click', () => {
     const nextIndex = imagesIndexPosition.nextIndex();
 
-    circleButtons.forEach((button) => {
-      button.classList.remove('active_button');
-    });
-    const circleButton = document.querySelector(
-      `button[data-slide-index="${parseInt(nextIndex, 10)}"]`,
-    );
-    circleButton.classList.toggle('active_button');
+    fillTheRightCircleButton({
+      index: nextIndex,
+      buttons: circleButtons,
+      classListVal: 'active_button',
+      dataAttribute: 'data-slide-index',
+    }).fillCircle();
 
-    imagesIndexPosition.arrayOfImages.forEach((image) => {
-      image.setAttribute(
-        'style',
-        `transform: translateX(-${
-          imagePosition({
-            imageWidth: 100,
-            index: nextIndex,
-          }).positionGetter
-        }ch)`,
-      );
-    });
+    moveAllTheImages({
+      arrayOfImages: imagesIndexPosition.arrayOfImages,
+      imageWidth: imagePosition({ imageWidth: 100, index: nextIndex })
+        .positionGetter,
+      unit: 'ch',
+    }).moveHorizontally();
   });
 
   arrowBack.addEventListener('click', () => {
     const previousIndex = imagesIndexPosition.previousIndex();
 
-    circleButtons.forEach((button) => {
-      button.classList.remove('active_button');
-    });
-    const circleButton = document.querySelector(
-      `button[data-slide-index="${parseInt(previousIndex, 10)}"]`,
-    );
-    circleButton.classList.toggle('active_button');
+    fillTheRightCircleButton({
+      index: previousIndex,
+      buttons: circleButtons,
+      classListVal: 'active_button',
+      dataAttribute: 'data-slide-index',
+    }).fillCircle();
 
-    imagesIndexPosition.arrayOfImages.forEach((image) => {
-      image.setAttribute(
-        'style',
-        `transform: translateX(-${
-          imagePosition({
-            imageWidth: 100,
-            index: previousIndex,
-          }).positionGetter
-        }ch)`,
-      );
-    });
+    moveAllTheImages({
+      arrayOfImages: imagesIndexPosition.arrayOfImages,
+      imageWidth: imagePosition({ imageWidth: 100, index: previousIndex })
+        .positionGetter,
+      unit: 'ch',
+    }).moveHorizontally();
   });
 
   circleButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      // you want to remove all the active button so the right one would be toggle
-      circleButtons.forEach((element) => {
-        element.classList.remove('active_button');
-      });
-
-      button.classList.toggle('active_button');
-
-      // you want to change the index value
       const buttonAtrribute = button.getAttribute('data-slide-index');
-      const indexGetter = imagesIndexPosition.customIndex(buttonAtrribute);
-
-      imagesIndexPosition.arrayOfImages.forEach((image) => {
-        image.setAttribute(
-          'style',
-          `transform: translateX(-${
-            imagePosition({ imageWidth: 100, index: indexGetter })
-              .positionGetter
-          }ch)`,
-        );
+      const indexGetter = imagesIndexPosition.customIndex({
+        indexPosition: buttonAtrribute,
       });
+
+      fillTheRightCircleButton({
+        index: indexGetter,
+        buttons: circleButtons,
+        classListVal: 'active_button',
+        dataAttribute: 'data-slide-index',
+      }).fillCircle();
+
+      moveAllTheImages({
+        arrayOfImages: imagesIndexPosition.arrayOfImages,
+        imageWidth: imagePosition({ imageWidth: 100, index: indexGetter })
+          .positionGetter,
+        unit: 'ch',
+      }).moveHorizontally();
     });
   });
 
