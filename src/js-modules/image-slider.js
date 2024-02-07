@@ -60,7 +60,7 @@ const arrayIndexPosition = () => {
   };
 
   // when circle button is clicked depending on the index value that this gets returns that index
-  const customIndex = (indexPosition) => {
+  const customIndex = ({ indexPosition }) => {
     index = parseInt(indexPosition, 10);
     return index;
   };
@@ -81,4 +81,41 @@ const imagePosition =
     };
   };
 
-export { arrayIndexPosition, elementSetter, imagePosition };
+const fillTheRightCircleButton = ({
+  index,
+  buttons,
+  classListVal,
+  dataAttribute,
+}) => {
+  const fillCircle = function fillsTheRightElementUsingArrowButtons() {
+    buttons.forEach((button) => {
+      button.classList.remove(`${classListVal}`);
+
+      if (button.getAttribute(`${dataAttribute}`) === `${index}`) {
+        button.classList.add(`${classListVal}`);
+      }
+    });
+  };
+
+  return { fillCircle };
+};
+
+const moveAllTheImages = ({ arrayOfImages, imageWidth, unit }) => {
+  const moveHorizontally = () =>
+    arrayOfImages.forEach((item) => {
+      item.setAttribute(
+        'style',
+        `transform: translateX(-${imageWidth}${unit})`,
+      );
+    });
+
+  return { moveHorizontally };
+};
+
+export {
+  arrayIndexPosition,
+  elementSetter,
+  imagePosition,
+  fillTheRightCircleButton,
+  moveAllTheImages,
+};
