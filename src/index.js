@@ -91,5 +91,23 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // todo: create a function that automatically advances the image using setInterval run this function for every 5 seconds
+  const forwardMovement = function useThisFunctionMoveImagesEveryFiveSeconds() {
+    const nextIndex = imagesIndexPosition.nextIndex();
+
+    fillTheRightCircleButton({
+      index: nextIndex,
+      buttons: circleButtons,
+      classListVal: 'active_button',
+      dataAttribute: 'data-slide-index',
+    }).fillCircle();
+
+    moveAllTheImages({
+      arrayOfImages: imagesIndexPosition.arrayOfImages,
+      imageWidth: imagePosition({ imageWidth: 100, index: nextIndex })
+        .positionGetter,
+      unit: 'ch',
+    }).moveHorizontally();
+  };
+
+  setInterval(forwardMovement, 5000);
 });
