@@ -59,7 +59,13 @@ const arrayIndexPosition = () => {
     return index;
   };
 
-  return { nextIndex, previousIndex, arrayOfImages };
+  // when circle button is clicked depending on the index value that this gets returns that index
+  const customIndex = (indexPosition) => {
+    index = parseInt(indexPosition, 10);
+    return index;
+  };
+
+  return { arrayOfImages, nextIndex, previousIndex, customIndex };
 };
 
 const imagePosition =
