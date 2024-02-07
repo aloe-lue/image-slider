@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
       button.classList.remove('active_button');
     });
     const circleButton = document.querySelector(
-      `button[data-slide-index="${nextIndex}"]`,
+      `button[data-slide-index="${parseInt(nextIndex, 10)}"]`,
     );
     circleButton.classList.toggle('active_button');
 
@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
       button.classList.remove('active_button');
     });
     const circleButton = document.querySelector(
-      `button[data-slide-index="${previousIndex}"]`,
+      `button[data-slide-index="${parseInt(previousIndex, 10)}"]`,
     );
     circleButton.classList.toggle('active_button');
 
@@ -77,4 +77,31 @@ window.addEventListener('DOMContentLoaded', () => {
       );
     });
   });
+
+  circleButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      // you want to remove all the active button so the right one would be toggle
+      circleButtons.forEach((element) => {
+        element.classList.remove('active_button');
+      });
+
+      button.classList.toggle('active_button');
+
+      // you want to change the index value
+      const buttonAtrribute = button.getAttribute('data-slide-index');
+      const indexGetter = imagesIndexPosition.customIndex(buttonAtrribute);
+
+      imagesIndexPosition.arrayOfImages.forEach((image) => {
+        image.setAttribute(
+          'style',
+          `transform: translateX(-${
+            imagePosition({ imageWidth: 100, index: indexGetter })
+              .positionGetter
+          }ch)`,
+        );
+      });
+    });
+  });
+
+  // todo: create a function that automatically advances the image using setInterval run this function for every 5 seconds
 });
